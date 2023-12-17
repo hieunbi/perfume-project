@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}- List{% endblock %}
+
+{% block content %}
+    {% for post in photos %}
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 panel panel-default">
+                <p><img src="{{post.photo.url}}" style="width:100%;"></p>
+
+                <input type="checkbox" id="postId" name="postId" value="{{post.id}}">
+                
+                {% comment %} <button type="button" class="btn btn-xs btn-info">
+                    {{post.author.username}}
+                </button> {% endcomment %}
+
+                <p>{{post.text|linebreaksbr}}</p>
+                {% comment %} <p class="text-right">
+                    <a href="{% url 'photo:photo_detail' pk=post.id %}" class="btn btn-xs btn-success">댓글달기</a>
+                </p> {% endcomment %}
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    {% endfor %}
+    <div class="row" style="justify-content: center;">
+    <button type="button" class="btn btn-xs btn-info">
+        비교하기
+    </button>
+    </div>
+{% endblock %}

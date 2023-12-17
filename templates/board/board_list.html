@@ -1,0 +1,14 @@
+{% if board_list %}
+<ul>
+ {% for board in board_list %}
+ <li>
+ <a href="/board/{{ board.id }}/">{{ board.subject }}</a>
+ </li>
+{% endfor %}
+</ul>
+{% else %}
+<p>게시글을 작성해 주세요.</p>
+{% endif %}
+    <button type="button" class="btn btn-xs btn-info">
+        게시글 작성하기
+    </button>
